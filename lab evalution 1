@@ -1,0 +1,816 @@
+//gym.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness gym club</title>
+</head>
+<link rel="stylesheet" href="gym.css">
+<style>
+
+    body {
+        font-family: monospace;
+        /* color: rgb(249, 248, 248); */
+        margin: 0px;
+        padding: 0px;
+        background: url(scott-webb-Vn39uEkX00s-unsplash.jpg);
+        width: auto;
+        /* background: linear-gradient(to bottom, #f5f5f5, #ccc); */
+
+    }
+    
+    body.light {
+        color: black;
+    }
+
+    /* Dark theme */
+    body.dark {
+        color: white;
+    }
+
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked+.slider {
+        background-color: #21f356;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+    .dark {
+        background-color: #222222;
+        /* dark theme */
+    }
+
+    .dark body {
+        background-color: #222222;
+        color: #f5f5f5;
+    }
+
+    .left {
+        position: absolute;
+        left: 38px;
+        top: 18px;
+        display: inline-block;
+        /* border: 2px solid red; */
+
+    }
+
+    .left img {
+        width: 136px;
+        filter: invert(100%);
+    }
+
+    .left div {
+        text-align: center;
+        font-size: 15px
+    }
+
+    .mid {
+        display: block;
+        width: 60%;
+        margin: 29px auto;
+        /* border: 2px solid greenyellow; */
+    }
+
+    .right {
+        position: absolute;
+        right: 70px;
+        top: 50px;
+        display: inline-block;
+        /* border: 2px solid green; */
+    }
+
+    .navbar {
+        display: inline-block;
+        background-color: pink;
+        border-radius: 50px;
+        /* font-size: 400px; */
+
+
+    }
+
+    .navbar li {
+        display: inline-block;
+        font-size: 40px;
+    }
+
+    .navbar li a {
+        color: rgb(76, 41, 41);
+        text-decoration: none;
+        padding: 34px 25px;
+    }
+
+    .navbar li a:hover,
+    .navbar li a.active {
+        text-decoration: underline;
+        /* color: rgb(18, 238, 238); */
+    }
+
+    .btn {
+        font-family: monospace;
+        margin: 0px 9px;
+        background-color: black;
+        color: aliceblue;
+        border-radius: 7px;
+        padding: 4px 14px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: rgb(31, 30, 30);
+    }
+
+    .container {
+        border: 2px solid rgb(76, 41, 41);
+        margin: 106px 80px;
+        padding: 75px;
+        width: 33%;
+        border-radius: 28px;
+    }
+
+    .form-group input {
+        text-align: center;
+        display: block;
+        width: 508px;
+        padding: 1px;
+        border: 2px solid black;
+        margin: 11px auto;
+        font-size: 20px;
+        border-radius: 8px;
+        font-family: monospace;
+
+    }
+
+    .container h1 {
+        text-align: center;
+    }
+
+    .container button {
+        display: block;
+        width: 23%;
+        margin: 20px auto;
+
+    }
+</style>
+
+<body>
+    <header class="header">
+        <div class="left">
+            <img src="istockphoto-1223944644-1024x1024.jpg" alt="">
+            <div> Fitness</div>
+        </div>
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="Fitnesscal.html">Fitness Calculator</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+                
+            </ul>
+        </div>
+        <div class="right">
+            <form action="/search" method="get">
+                <input type="text" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
+
+        </div>
+    </header>
+    <div class="container">
+        <h1>Join The Best Gym of Chandigarh Now</h1>
+            <form action="member.php" method="GET">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Enter your name">
+                    <input type="text" name="age" placeholder="Enter your age">
+                    <input type="text" name="gender" placeholder="Enter your Gender">
+                    <input type="text" name="locality" placeholder="Enter your Locality">
+                    <input type="text" name="contact_number" placeholder="Enter your Contact Number">
+                    <input type="text" name="email" placeholder="Enter your Email ID">
+                </div>
+                <button class="btn" type="submit">SUBMIT</button>
+            </form>
+        </div>
+        
+        <div>
+            <label class="switch">
+                <input type="checkbox" onclick="toggleTheme()">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <script>
+            const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
+            const currentTheme = localStorage.getItem('theme');
+
+            if (currentTheme) {
+                document.documentElement.setAttribute('data-theme', currentTheme);
+
+                if (currentTheme === 'dark') {
+                    toggleSwitch.checked = true;
+                    document.body.classList.add('dark');
+                }
+            }
+
+            function switchTheme(event) {
+                if (event.target.checked) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    document.body.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    document.body.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            toggleSwitch.addEventListener('change', switchTheme, false);
+
+        </script>
+    </div>
+    </div>
+</body>
+
+</html>
+
+
+//about.html
+
+
+<html>
+
+<head>
+    <title>About Us | Fitness Gym Club</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #hero-image {
+            background-image: url("https://images.unsplash.com/photo-1506485394852-5968c6bdae23");
+            background-size: cover;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #hero-image h1 {
+            color: #fff;
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 2px 2px #333;
+        }
+
+        #about {
+            margin: 40px auto;
+            max-width: 800px;
+            text-align: justify;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        #about ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #about ul li {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        #about img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Fitness Gym Club</h1>
+    </header>
+    <div id="hero-image">
+        <h1>About Us</h1>
+    </div>
+    <div id="about">
+        <section class="about-us" id="who-are-we">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="section-title">Who Are We?</h2>
+                        <p>We are a fitness gym club dedicated to helping individuals achieve their fitness goals
+                            through personalized training programs, nutrition plans, and a supportive community.</p>
+                        <p>Our team of certified trainers and nutritionists are committed to providing the highest
+                            quality guidance and support to each and every member, regardless of their fitness level or
+                            experience.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="https://images.unsplash.com/photo-1518458028785-8fbcd101ebb5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                            alt="Fitness Gym">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="about-us" id="why-choose-us">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="https://images.unsplash.com/photo-1542456075-25ea5c85f731?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                            alt="Fitness Gym">
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="section-title">Why Choose Us?</h2>
+                        <ul>
+                            <li>Customized training programs tailored to your specific goals and needs</li>
+                            <li>Expert nutrition guidance to help you fuel your body for optimal performance</li>
+                            <li>A supportive and inclusive community of like-minded individuals</li>
+                            <li>A range of equipment and facilities to help you achieve your fitness goals</li>
+                            <li>Friendly and knowledgeable staff to answer your questions and provide guidance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Team Section -->
+        <section class="about-us" id="our-team">
+            <div class="container">
+                <h2 class="section-title">Our Team</h2>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                                alt="Team Member">
+                            <h3>John Doe</h3>
+                            <p>Certified Personal Trainer</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1556228721-01987b6e0b50?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                                alt="Team Member">
+                            <h3>Jane Smith</h3>
+                            <p>Certified Nutritionist</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="team-member">
+                            <img src="https://images.unsplash.com/photo-1501555088652S
+                                <div class=" container">
+                            <h2>Our Team</h2>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="team-member">
+                                        <img src="#" class="img-responsive" alt="">
+                                        <h4>John Doe</h4>
+                                        <p class="text-muted">Fitness Trainer</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="team-member">
+                                        <img src="#" class="img-responsive" alt="">
+                                        <h4>Jane Smith</h4>
+                                        <p class="text-muted">Nutritionist</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="team-member">
+                                        <img src="#" class="img-responsive" alt="">
+                                        <h4>Bob Johnson</h4>
+                                        <p class="text-muted">Yoga Instructor</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="section-title">Our Facilities</h2>
+                        <div class="underline"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Our gym is equipped with the latest fitness equipment to help you achieve your fitness goals.
+                            We have a range of cardio machines, weightlifting equipment, and functional training tools
+                            to cater to all your fitness needs.</p>
+                        <p>In addition to our fitness equipment, we also offer a range of facilities to help you relax
+                            and unwind after your workout. These include a sauna, steam room, and hot tub.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="https://images.unsplash.com/photo-1585336769745-c5f7b8cced2b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zml0bmVzc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
+                            class="img-fluid rounded" alt="Facilities">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
+
+
+//contactus.html
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us</title>
+	<link rel="stylesheet" type="text/css" href="contact.css">
+<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background-color: #333;
+	color: white;
+	padding: 10px;
+	text-align: center;
+}
+
+h1 {
+	margin: 0;
+}
+
+main {
+	margin: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+form {
+	flex-basis: 48%;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input, textarea {
+	padding: 5px;
+	margin-bottom: 10px;
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+
+button {
+	background-color: #333;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #555;
+}
+
+.contact-info {
+	flex-basis: 48%;
+	padding: 20px;
+	background-color: #f2f2f2;
+	border-radius: 5px;
+}
+
+.contact-info h2 {
+	margin-top: 0;
+}
+
+footer {
+	background-color: #333;
+	color: white;
+	padding: 10px;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+	main {
+		flex-direction: column;
+	}
+	form, .contact-info {
+		flex-basis: 100%;
+		margin-bottom: 20px;
+	}
+}
+.social-icons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 20px 0;
+}
+
+.social-icons a {
+	display: inline-block;
+	margin: 0 10px;
+	font-size: 20px;
+	color: #555;
+	transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+	color: #0077B5;
+}
+
+.social-icons i {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 50%;
+	text-align: center;
+	background-color: #f2f2f2;
+	transition: all 0.3s ease;
+}
+
+.social-icons i:hover {
+	background-color: #0077B5;
+	color: #fff;
+}
+
+</style>
+</head>
+<body>
+	<header>
+		<h1>Contact Us</h1>
+	</header>
+	<main>
+		<form id="contact-form">
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required><br>
+
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" required><br>
+
+			<label for="message">Message:</label>
+			<textarea id="message" name="message" required></textarea><br>
+
+			<button type="submit">Submit</button>
+		</form>
+
+		<div class="contact-info">
+			<h2>Contact Information</h2>
+			<p>Email: <span id="email-output"></span></p>
+			<p>Name: <span id="name-output"></span></p>
+			<p>Message: <span id="message-output"></span></p>
+		</div>
+	</main>
+	<footer>
+		<p>&copy; 2023 Fitness Gym . All rights reserved.</p>
+	</footer>
+	<script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Select the form and the contact info elements
+          const form = document.querySelector('form');
+          const contactInfo = document.querySelector('.contact-info');
+      
+          // Add a submit event listener to the form
+          form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const name = document.querySelector('#name').value;
+            const email = document.querySelector('#email').value;
+            const message = document.querySelector('#message').value;
+            contactInfo.innerHTML = `
+              <h2>Contact Information</h2>
+              <p>Name: ${name}</p>
+              <p>Email: ${email}</p>
+              <p>Message: ${message}</p>
+            `;
+
+            form.reset();
+          });
+        });
+      </script>
+       <div class="social-icons">
+        <a href="https://www.facebook.com/Bangia_rythem"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/1200px-Facebook_f_logo_%282021%29.svg.png" alt="Facebook logo" height="40"></a>
+        <a href="https://www.twitter.com/Bangia_rythem"><img src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png" alt="Twitter logo" height="40"></a></a>
+        <a href="https://www.instagram.com/Bangia_rythem"><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram logo" height="50"></a>
+        <a href="https://www.linkedin.com/Example"><img src="https://play-lh.googleusercontent.com/kMofEFLjobZy_bCuaiDogzBcUT-dz3BBbOrIEjJ-hqOabjK8ieuevGe6wlTD15QzOqw" alt="linkedin log" height="40">
+        </a>
+    </div>
+      
+</body>
+</html>
+
+
+// fitnesscal.html
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fitness Calculator</title>
+    <style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+		}
+		
+		h1 {
+			color: #333;
+			text-align: center;
+			margin: 20px 0;
+		}
+		
+		form {
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			padding: 20px;
+			margin: 0 auto;
+			max-width: 500px;
+		}
+		
+		label {
+			display: inline-block;
+			margin-bottom: 10px;
+		}
+		
+		input[type="number"],
+		select {
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			margin-bottom: 20px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		
+		button {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+		
+		button:hover {
+			background-color: #555;
+		}
+		
+		#result {
+			font-size: 20px;
+			font-weight: bold;
+			color: #333;
+			text-align: center;
+			margin-top: 30px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Fitness Calculator</h1>
+	<form>
+		<label for="age">Age:</label>
+		<input type="number" id="age" name="age"><br><br>
+		
+		<label for="gender">Gender:</label>
+		<select id="gender" name="gender">
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+		</select><br><br>
+		
+		<label for="height">Height (in cm):</label>
+		<input type="number" id="height" name="height"><br><br>
+		
+		<label for="weight">Weight (in kg):</label>
+		<input type="number" id="weight" name="weight"><br><br>
+		
+		<button type="button" onclick="calculateBmi()">Calculate BMI</button>
+		<button type="button" onclick="calculateBmr()">Calculate BMR</button>
+	</form>
+	<p id="result"></p>
+	
+	<script>
+		function calculateBmi() {
+			var weight = document.getElementById("weight").value;
+			var height = document.getElementById("height").value / 100;
+			var bmi = weight / (height * height);
+			document.getElementById("result").innerHTML = "Your BMI is " + bmi.toFixed(2);
+		}
+		
+		function calculateBmr() {
+			var age = document.getElementById("age").value;
+			var gender = document.getElementById("gender").value;
+			var weight = document.getElementById("weight").value;
+			var height = document.getElementById("height").value;
+			
+			if (gender === "male") {
+				var bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
+			} else {
+				var bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
+			}
+			
+			document.getElementById("result").innerHTML = "Your BMR is " + bmr.toFixed(2) + " calories per day.";
+		}
+	</script>
+</body>
+</html>
